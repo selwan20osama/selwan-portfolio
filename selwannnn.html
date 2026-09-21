@@ -1,0 +1,1640 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Selwan Osama | Data Engineering Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #07080c;
+    color: #f5f5f7;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+    --bg: #07080c;
+    --card: #101118;
+    --border: #242631;
+    --text: #f5f5f7;
+    --muted: #8b8e9a;
+    --purple: #8b5cf6;
+    --purple-light: #a78bfa;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(7, 8, 12, 0.78);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.navbar {
+    max-width: 1180px;
+    margin: auto;
+
+    padding: 20px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    text-decoration: none;
+    color: white;
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #9698a3;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    max-width: 1180px;
+    margin: auto;
+
+    padding: 150px 25px 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 80px;
+}
+
+.hero-left {
+    max-width: 680px;
+}
+
+.eyebrow {
+    color: var(--purple-light);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 7vw, 92px);
+
+    line-height: 0.98;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    color: var(--purple);
+}
+
+.hero-description {
+    max-width: 590px;
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+    margin-bottom: 35px;
+}
+
+.buttons {
+    display: flex;
+    gap: 14px;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 13px 22px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.btn-primary {
+    color: white;
+    background: var(--purple);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 35px rgba(139,92,246,0.28);
+}
+
+.btn-outline {
+    color: white;
+
+    border: 1px solid #30323d;
+}
+
+.btn-outline:hover {
+    border-color: var(--purple);
+}
+
+
+/* =========================
+   HERO CODE WINDOW
+========================= */
+
+.code-window {
+    width: 390px;
+
+    background: #0e0f15;
+
+    border: 1px solid #292b36;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,0.5);
+
+    transform: rotate(2deg);
+
+    transition: 0.5s;
+}
+
+.code-window:hover {
+    transform: rotate(0deg) translateY(-8px);
+}
+
+.window-header {
+    padding: 15px 18px;
+
+    border-bottom: 1px solid #252732;
+}
+
+.window-dot {
+    width: 9px;
+    height: 9px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+
+    background: #444752;
+
+    margin-right: 5px;
+}
+
+.code {
+    padding: 27px;
+
+    font-family: Consolas, monospace;
+
+    font-size: 14px;
+
+    color: #bfc1ca;
+}
+
+.code-line {
+    margin-bottom: 9px;
+}
+
+.keyword {
+    color: #c084fc;
+}
+
+.string {
+    color: #67e8f9;
+}
+
+.boolean {
+    color: #86efac;
+}
+
+.comment {
+    color: #555965;
+}
+
+
+/* =========================
+   GENERAL SECTION
+========================= */
+
+.section {
+    max-width: 1180px;
+
+    margin: auto;
+
+    padding: 115px 25px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 55px;
+}
+
+.section-number {
+    color: var(--purple);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+
+    letter-spacing: -1.5px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-box {
+    max-width: 780px;
+}
+
+.about-box p {
+    color: var(--muted);
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.skill {
+    padding: 25px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 13px;
+
+    transition: 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--purple);
+}
+
+.skill-icon {
+    font-size: 25px;
+
+    margin-bottom: 15px;
+}
+
+.skill h3 {
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+.skill p {
+    color: #747782;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   JOURNEY
+========================= */
+
+.timeline {
+    position: relative;
+
+    max-width: 800px;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 5px;
+
+    top: 10px;
+
+    bottom: 10px;
+
+    width: 1px;
+
+    background: #292b35;
+}
+
+.timeline-item {
+    position: relative;
+
+    display: flex;
+
+    gap: 30px;
+
+    padding-bottom: 42px;
+}
+
+.timeline-dot {
+    flex-shrink: 0;
+
+    width: 11px;
+    height: 11px;
+
+    margin-top: 9px;
+
+    border-radius: 50%;
+
+    background: var(--purple);
+
+    box-shadow:
+        0 0 18px rgba(139,92,246,0.65);
+
+    z-index: 2;
+}
+
+.timeline-item h3 {
+    font-size: 20px;
+
+    margin-bottom: 4px;
+}
+
+.timeline-item p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+.future {
+    opacity: 0.45;
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.project {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 350px;
+
+    padding: 35px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    transition: 0.35s;
+}
+
+.project:hover {
+    transform: translateY(-7px);
+
+    border-color: var(--purple);
+}
+
+.project-number {
+    position: absolute;
+
+    top: 15px;
+    right: 25px;
+
+    font-size: 65px;
+
+    font-weight: 800;
+
+    color: #181a22;
+}
+
+.project-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+.project-category {
+    color: var(--purple-light);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.project h3 {
+    font-size: 26px;
+
+    margin-bottom: 15px;
+}
+
+.project-description {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    max-width: 500px;
+}
+
+.tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin: 22px 0;
+}
+
+.tag {
+    padding: 5px 9px;
+
+    border-radius: 5px;
+
+    background: #191b23;
+
+    border: 1px solid #292b35;
+
+    color: #b5b7c0;
+
+    font-size: 10px;
+}
+
+.project-link {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.project-link:hover {
+    color: var(--purple-light);
+}
+
+.disabled {
+    color: #626571;
+}
+
+
+/* =========================
+   EDUCATION
+========================= */
+
+.education {
+    max-width: 800px;
+
+    padding: 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+}
+
+.education-year {
+    color: var(--purple-light);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    margin-bottom: 6px;
+}
+
+.education h3 {
+    font-size: 22px;
+}
+
+.education p {
+    color: var(--muted);
+}
+
+.degree {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid var(--purple);
+
+    border-radius: 50%;
+
+    color: var(--purple-light);
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    max-width: 1180px;
+
+    margin: auto;
+
+    padding: 140px 25px 40px;
+
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: clamp(50px, 7vw, 90px);
+
+    line-height: 1;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 25px;
+}
+
+.contact-description {
+    max-width: 500px;
+
+    margin: auto auto 30px;
+
+    color: var(--muted);
+}
+
+.contact-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 14px;
+}
+
+footer {
+    margin-top: 120px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #1d1f27;
+
+    color: #555863;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding-top: 130px;
+    }
+
+    .code-window {
+        width: 100%;
+
+        max-width: 500px;
+    }
+
+    .skills {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .hero h1 {
+        font-size: 52px;
+
+        letter-spacing: -3px;
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        text-align: center;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .contact h2 {
+        font-size: 52px;
+
+        letter-spacing: -3px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+
+<nav class="navbar">
+
+    <a href="#" class="logo">
+        SO<span>.</span>
+    </a>
+
+    <div class="nav-links">
+
+        <a href="#about">About</a>
+
+        <a href="#skills">Skills</a>
+
+        <a href="#journey">Journey</a>
+
+        <a href="#projects">Projects</a>
+
+        <a href="#contact">Contact</a>
+
+    </div>
+
+</nav>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+
+<div class="hero-left">
+
+    <p class="eyebrow">
+        DATA ENGINEERING STUDENT
+    </p>
+
+
+    <h1>
+        Turning <span>Data</span><br>
+        Into Solutions.
+    </h1>
+
+
+    <p class="hero-description">
+
+        I'm Selwan Osama, a Computer Science student
+        building my path in Data Engineering through
+        Python, SQL, databases, data processing and
+        practical projects.
+
+    </p>
+
+
+    <div class="buttons">
+
+        <a
+            href="#projects"
+            class="btn btn-primary">
+
+            Explore My Work
+
+        </a>
+
+
+        <a
+            href="https://www.linkedin.com/in/selwan-osama-7a389a33b"
+            target="_blank"
+            class="btn btn-outline">
+
+            LinkedIn ↗
+
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- CODE WINDOW -->
+
+<div class="code-window">
+
+    <div class="window-header">
+
+        <span class="window-dot"></span>
+        <span class="window-dot"></span>
+        <span class="window-dot"></span>
+
+    </div>
+
+
+    <div class="code">
+
+        <div class="code-line">
+            <span class="keyword">pipeline</span> = {
+        </div>
+
+        <div class="code-line">
+            &nbsp;&nbsp;<span class="string">"python"</span>:
+            <span class="boolean">True</span>,
+        </div>
+
+        <div class="code-line">
+            &nbsp;&nbsp;<span class="string">"sql"</span>:
+            <span class="boolean">True</span>,
+        </div>
+
+        <div class="code-line">
+            &nbsp;&nbsp;<span class="string">"mongodb"</span>:
+            <span class="boolean">True</span>,
+        </div>
+
+        <div class="code-line">
+            &nbsp;&nbsp;<span class="string">"data_engineering"</span>:
+            <span class="string">"building"</span>
+        </div>
+
+        <div class="code-line">
+            }
+        </div>
+
+        <div class="code-line comment">
+            # learning → building → improving
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="section">
+
+    <div class="section-heading">
+
+        <span class="section-number">
+            01
+        </span>
+
+        <h2>
+            About Me
+        </h2>
+
+    </div>
+
+
+    <div class="about-box">
+
+        <p>
+            I'm a Computer Science student at Fayoum University
+            with a growing focus on Data Engineering.
+        </p>
+
+        <p>
+            I'm currently developing practical experience with
+            Python, SQL, SQL Server, MongoDB, Pandas and Selenium,
+            while continuing to explore modern data engineering
+            technologies and workflows.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills" class="section">
+
+    <div class="section-heading">
+
+        <span class="section-number">
+            02
+        </span>
+
+        <h2>
+            Skills & Technologies
+        </h2>
+
+    </div>
+
+
+    <div class="skills">
+
+
+        <div class="skill">
+
+            <div class="skill-icon">
+                🐍
+            </div>
+
+            <h3>
+                Python
+            </h3>
+
+            <p>
+                Programming & Data Processing
+            </p>
+
+        </div>
+
+
+
+        <div class="skill">
+
+            <div class="skill-icon">
+                ◈
+            </div>
+
+            <h3>
+                SQL
+            </h3>
+
+            <p>
+                Queries & Database Management
+            </p>
+
+        </div>
+
+
+
+        <div class="skill">
+
+            <div class="skill-icon">
+                ◆
+            </div>
+
+            <h3>
+                MongoDB
+            </h3>
+
+            <p>
+                NoSQL & Data Storage
+            </p>
+
+        </div>
+
+
+
+        <div class="skill">
+
+            <div class="skill-icon">
+                ◫
+            </div>
+
+            <h3>
+                Pandas
+            </h3>
+
+            <p>
+                Data Cleaning & Analysis
+            </p>
+
+        </div>
+
+
+
+        <div class="skill">
+
+            <div class="skill-icon">
+                ◎
+            </div>
+
+            <h3>
+                Selenium
+            </h3>
+
+            <p>
+                Web Scraping & Automation
+            </p>
+
+        </div>
+
+
+
+        <div class="skill">
+
+            <div class="skill-icon">
+                ▦
+            </div>
+
+            <h3>
+                SQL Server
+            </h3>
+
+            <p>
+                Relational Databases
+            </p>
+
+        </div>
+
+
+
+        <div class="skill">
+
+            <div class="skill-icon">
+                ⌘
+            </div>
+
+            <h3>
+                Git & GitHub
+            </h3>
+
+            <p>
+                Version Control
+            </p>
+
+        </div>
+
+
+
+        <div class="skill">
+
+            <div class="skill-icon">
+                + 
+            </div>
+
+            <h3>
+                Currently Learning
+            </h3>
+
+            <p>
+                Data Warehouse • ETL • Azure
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= JOURNEY ================= -->
+
+<section id="journey" class="section">
+
+    <div class="section-heading">
+
+        <span class="section-number">
+            03
+        </span>
+
+        <h2>
+            My Data Engineering Journey
+        </h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div>
+
+                <h3>
+                    Python
+                </h3>
+
+                <p>
+                    Programming fundamentals & problem solving
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div>
+
+                <h3>
+                    Web Scraping
+                </h3>
+
+                <p>
+                    Selenium, Pandas & data collection
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div>
+
+                <h3>
+                    SQL & Databases
+                </h3>
+
+                <p>
+                    SQL Server, queries, procedures, views & functions
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div>
+
+                <h3>
+                    MongoDB + Python
+                </h3>
+
+                <p>
+                    NoSQL, aggregation, indexing & database integration
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="timeline-item future">
+
+            <div class="timeline-dot"></div>
+
+            <div>
+
+                <h3>
+                    Data Warehouse
+                </h3>
+
+                <p>
+                    Currently learning
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="timeline-item future">
+
+            <div class="timeline-dot"></div>
+
+            <div>
+
+                <h3>
+                    Azure & Data Pipelines
+                </h3>
+
+                <p>
+                    Future stage
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects" class="section">
+
+    <div class="section-heading">
+
+        <span class="section-number">
+            04
+        </span>
+
+        <h2>
+            Featured Projects
+        </h2>
+
+    </div>
+
+
+    <div class="projects">
+
+
+        <!-- AMAZON -->
+
+        <article class="project">
+
+            <div class="project-number">
+                01
+            </div>
+
+
+            <div class="project-content">
+
+                <p class="project-category">
+                    WEB SCRAPING
+                </p>
+
+
+                <h3>
+                    Amazon Laptop Scraper
+                </h3>
+
+
+                <p class="project-description">
+
+                    A web scraping and data cleaning project
+                    using Selenium and Pandas to collect
+                    laptop product information from Amazon.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        Python
+                    </span>
+
+                    <span class="tag">
+                        Selenium
+                    </span>
+
+                    <span class="tag">
+                        Pandas
+                    </span>
+
+                    <span class="tag">
+                        Data Cleaning
+                    </span>
+
+                </div>
+
+
+                <!-- REAL LINK YOU PROVIDED -->
+
+                <a
+                    href="https://github.com/selwan20osama/amazon-laptop-scraper"
+                    target="_blank"
+                    class="project-link">
+
+                    View Project on GitHub →
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- SQL -->
+
+        <article class="project">
+
+            <div class="project-number">
+                02
+            </div>
+
+
+            <div class="project-content">
+
+                <p class="project-category">
+                    DATABASE
+                </p>
+
+
+                <h3>
+                    SQL Server
+                </h3>
+
+
+                <p class="project-description">
+
+                    Hands-on database work covering queries,
+                    joins, views, stored procedures, functions,
+                    triggers and indexes.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        SQL
+                    </span>
+
+                    <span class="tag">
+                        SQL Server
+                    </span>
+
+                    <span class="tag">
+                        Database
+                    </span>
+
+                </div>
+
+
+                <span class="project-link disabled">
+
+                    Repository coming soon
+
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- MONGODB -->
+
+        <article class="project">
+
+            <div class="project-number">
+                03
+            </div>
+
+
+            <div class="project-content">
+
+                <p class="project-category">
+                    NOSQL
+                </p>
+
+
+                <h3>
+                    MongoDB + Python
+                </h3>
+
+
+                <p class="project-description">
+
+                    Working with MongoDB collections,
+                    CRUD operations, aggregation, indexes
+                    and connecting MongoDB with Python.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        MongoDB
+                    </span>
+
+                    <span class="tag">
+                        Python
+                    </span>
+
+                    <span class="tag">
+                        NoSQL
+                    </span>
+
+                </div>
+
+
+                <span class="project-link disabled">
+
+                    Repository coming soon
+
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- DATA WAREHOUSE -->
+
+        <article class="project">
+
+            <div class="project-number">
+                04
+            </div>
+
+
+            <div class="project-content">
+
+                <p class="project-category">
+                    CURRENTLY LEARNING
+                </p>
+
+
+                <h3>
+                    Data Warehouse
+                </h3>
+
+
+                <p class="project-description">
+
+                    Exploring ETL, dimensional modeling,
+                    fact tables, dimension tables and
+                    analytical data workflows.
+
+                </p>
+
+
+                <div class="tags">
+
+                    <span class="tag">
+                        ETL
+                    </span>
+
+                    <span class="tag">
+                        Data Warehouse
+                    </span>
+
+                </div>
+
+
+                <span class="project-link disabled">
+
+                    Coming Soon
+
+                </span>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= EDUCATION ================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span class="section-number">
+            05
+        </span>
+
+        <h2>
+            Education
+        </h2>
+
+    </div>
+
+
+    <div class="education">
+
+        <div>
+
+            <p class="education-year">
+                2024 — 2028
+            </p>
+
+            <h3>
+                Fayoum University
+            </h3>
+
+            <p>
+                Faculty of Computers and Information
+            </p>
+
+        </div>
+
+
+        <div class="degree">
+            CS
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact">
+
+    <p class="eyebrow">
+        LET'S CONNECT
+    </p>
+
+
+    <h2>
+        Let's Build<br>
+        Something.
+    </h2>
+
+
+    <p class="contact-description">
+
+        I'm always interested in learning,
+        building and connecting with people
+        in technology.
+
+    </p>
+
+
+    <div class="contact-buttons">
+
+
+        <!-- YOUR LINKEDIN -->
+
+        <a
+            href="https://www.linkedin.com/in/selwan-osama-7a389a33b"
+            target="_blank"
+            class="btn btn-primary">
+
+            LinkedIn ↗
+
+        </a>
+
+
+        <!-- YOUR AMAZON PROJECT -->
+
+        <a
+            href="https://github.com/selwan20osama/amazon-laptop-scraper"
+            target="_blank"
+            class="btn btn-outline">
+
+            GitHub Project ↗
+
+        </a>
+
+
+    </div>
+
+
+    <footer>
+
+        © 2026 Selwan Osama · Data Engineering Portfolio
+
+    </footer>
+
+</section>
+
+
+</body>
+</html>
+```
