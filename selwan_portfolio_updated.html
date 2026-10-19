@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Selwan Osama's portfolio featuring Data Engineering, ETL, web scraping, and front-end projects.">
+  <title>Selwan Osama | Data Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07080c; --card: #101118; --border: #242631;
+      --text: #f5f5f7; --muted: #9698a3; --purple: #8b5cf6;
+      --purple-light: #c4b5fd; --cyan: #67e8f9;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+    a { color: inherit; }
+    header { position: fixed; inset: 0 0 auto; z-index: 1000; background: rgba(7,8,12,.86); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .navbar { max-width: 1180px; margin: auto; padding: 17px 25px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { text-decoration: none; color: white; font-size: 25px; font-weight: 800; letter-spacing: -1px; }
+    .logo span, .accent { color: var(--purple-light); }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 26px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 13px; transition: color .2s; }
+    .nav-links a:hover { color: white; }
+    .container { width: min(1180px, 100%); margin: auto; padding-inline: 25px; }
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; gap: 55px; padding-top: 125px; padding-bottom: 80px; }
+    .hero-left { max-width: 690px; }
+    .eyebrow { color: var(--purple-light); font-size: 12px; font-weight: 700; letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase; }
+    h1 { font-size: clamp(48px, 7vw, 86px); line-height: 1.02; letter-spacing: -4px; margin-bottom: 26px; }
+    .hero-description { color: var(--muted); font-size: 17px; max-width: 620px; margin-bottom: 30px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 13px; }
+    .btn { display: inline-block; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600; transition: .25s; }
+    .btn-primary { color: white; background: var(--purple); border: 1px solid var(--purple); }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 35px #8b5cf644; }
+    .btn-outline { color: white; border: 1px solid #363845; }
+    .btn-outline:hover { border-color: var(--purple); transform: translateY(-2px); }
+    .code-window { flex: 0 0 350px; background: #0e0f15; border: 1px solid #292b36; border-radius: 16px; box-shadow: 0 35px 100px #0008; transform: rotate(2deg); transition: .4s; }
+    .code-window:hover { transform: rotate(0) translateY(-7px); }
+    .window-header { padding: 14px 17px; border-bottom: 1px solid #252732; }
+    .window-dot { width: 9px; height: 9px; display: inline-block; border-radius: 50%; background: #555965; margin-right: 5px; }
+    .code { padding: 25px; font: 13px/1.9 Consolas, monospace; color: #bfc1ca; overflow-wrap: anywhere; }
+    .keyword { color: #c084fc; } .string { color: var(--cyan); } .boolean { color: #86efac; } .comment { color: #686c78; }
+    section.section { padding-top: 100px; padding-bottom: 35px; }
+    .section-heading { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+    .section-number { color: var(--purple-light); font-size: 13px; font-weight: 700; }
+    h2 { font-size: clamp(28px, 4vw, 38px); letter-spacing: -1.2px; }
+    .about-box { max-width: 800px; }
+    .about-box p { color: var(--muted); font-size: 17px; margin-bottom: 16px; }
+    .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .skill { padding: 22px; background: var(--card); border: 1px solid var(--border); border-radius: 13px; transition: .25s; }
+    .skill:hover, .project:hover { transform: translateY(-5px); border-color: var(--purple); }
+    .skill-icon { font-size: 24px; margin-bottom: 10px; }
+    .skill h3 { font-size: 15px; margin-bottom: 4px; }
+    .skill p { color: #858895; font-size: 12px; }
+    .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .project { position: relative; overflow: hidden; min-height: 330px; padding: 30px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; transition: .3s; }
+    .project-number { position: absolute; top: 6px; right: 20px; font-size: 66px; font-weight: 800; color: #1a1c25; }
+    .project-content { position: relative; z-index: 1; }
+    .project-category { color: var(--purple-light); font-size: 10px; font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; }
+    .project h3 { font-size: 23px; line-height: 1.3; margin-bottom: 13px; }
+    .project-description { color: var(--muted); font-size: 13px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 18px 0 21px; }
+    .tag { padding: 4px 8px; border-radius: 5px; background: #191b23; border: 1px solid #292b35; color: #c2c4ce; font-size: 10px; }
+    .project-link { color: white; text-decoration: none; font-size: 12px; font-weight: 700; }
+    .project-link:hover { color: var(--purple-light); }
+    .timeline { max-width: 800px; border-left: 1px solid #292b35; margin-left: 5px; padding-left: 27px; }
+    .timeline-item { position: relative; padding-bottom: 28px; }
+    .timeline-item::before { content: ""; position: absolute; left: -33px; top: 9px; width: 10px; height: 10px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 15px #8b5cf699; }
+    .timeline-item h3 { font-size: 17px; margin-bottom: 4px; }
+    .timeline-item p { color: var(--muted); font-size: 13px; }
+    .education { max-width: 800px; padding: 26px; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: var(--card); border: 1px solid var(--border); border-radius: 15px; }
+    .education-year { color: var(--purple-light); font-size: 12px; font-weight: 700; margin-bottom: 5px; }
+    .education h3 { font-size: 20px; } .education p:last-child { color: var(--muted); font-size: 13px; }
+    .degree { flex: 0 0 58px; height: 58px; display: grid; place-items: center; border: 1px solid var(--purple); border-radius: 50%; color: var(--purple-light); font-weight: 700; }
+    .contact { text-align: center; padding-top: 125px; padding-bottom: 30px; }
+    .contact h2 { font-size: clamp(44px, 7vw, 76px); line-height: 1.05; letter-spacing: -3px; margin-bottom: 20px; }
+    .contact-description { max-width: 520px; margin: 0 auto 25px; color: var(--muted); }
+    .contact-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    footer { margin-top: 75px; padding-top: 22px; border-top: 1px solid #1d1f27; color: #686b76; font-size: 12px; }
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; align-items: flex-start; justify-content: center; gap: 40px; }
+      .code-window { flex-basis: auto; width: 100%; max-width: 500px; }
+      .skills { grid-template-columns: repeat(2, 1fr); }
+      .projects { grid-template-columns: 1fr; }
+      .nav-links { gap: 14px; }
+    }
+    @media (max-width: 560px) {
+      .navbar { padding: 14px 18px; } .nav-links { display: none; }
+      .container { padding-inline: 19px; }
+      h1 { font-size: 50px; letter-spacing: -2.5px; }
+      .hero-description { font-size: 15px; }
+      section.section { padding-top: 75px; }
+      .skills { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .skill { padding: 16px; }
+      .project { padding: 23px; min-height: 0; }
+      .education { padding: 20px; }
+      .education h3 { font-size: 17px; }
+      .degree { flex-basis: 48px; height: 48px; }
+      .contact h2 { letter-spacing: -2px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#home" class="logo">SO<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#journey">Journey</a>
+        <a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-left">
+        <p class="eyebrow">Computer Science Student · Data Engineering</p>
+        <h1>Turning <span class="accent">Data</span><br>Into Solutions.</h1>
+        <p class="hero-description">
+          I'm Selwan Osama, a Computer Science student at Fayoum University building practical skills in
+          Data Engineering, Python, SQL, data processing, and workflow automation through hands-on projects.
+        </p>
+        <div class="buttons">
+          <a href="#projects" class="btn btn-primary">Explore My Projects</a>
+          <a href="https://www.linkedin.com/in/selwan-osama-7a389a33b" target="_blank" rel="noopener noreferrer" class="btn btn-outline">LinkedIn ↗</a>
+          <a href="https://github.com/selwan20osama" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="code-window" aria-label="Decorative code example">
+        <div class="window-header"><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span></div>
+        <div class="code">
+          <div><span class="keyword">pipeline</span> = {</div>
+          <div>&nbsp;&nbsp;<span class="string">"python"</span>: <span class="boolean">True</span>,</div>
+          <div>&nbsp;&nbsp;<span class="string">"sql"</span>: <span class="boolean">True</span>,</div>
+          <div>&nbsp;&nbsp;<span class="string">"airflow"</span>: <span class="boolean">True</span>,</div>
+          <div>&nbsp;&nbsp;<span class="string">"data_engineering"</span>: <span class="string">"building"</span></div>
+          <div>}</div>
+          <div class="comment"># learn → build → improve</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section container">
+      <div class="section-heading"><span class="section-number">01</span><h2>About Me</h2></div>
+      <div class="about-box">
+        <p>I'm a Computer Science student at Fayoum University with a growing focus on Data Engineering.</p>
+        <p>I'm developing practical experience with Python, SQL, databases, web scraping, and ETL workflows. I enjoy building projects that turn raw data into structured, useful outputs while continuing to strengthen my technical skills.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="section container">
+      <div class="section-heading"><span class="section-number">02</span><h2>Skills & Technologies</h2></div>
+      <div class="skills">
+        <article class="skill"><div class="skill-icon">🐍</div><h3>Python</h3><p>Programming & data processing</p></article>
+        <article class="skill"><div class="skill-icon">◈</div><h3>SQL</h3><p>Queries & relational databases</p></article>
+        <article class="skill"><div class="skill-icon">⚙</div><h3>Apache Airflow</h3><p>DAGs & workflow orchestration</p></article>
+        <article class="skill"><div class="skill-icon">▤</div><h3>SQLite</h3><p>Structured data storage</p></article>
+        <article class="skill"><div class="skill-icon">◎</div><h3>Selenium</h3><p>Web scraping & automation</p></article>
+        <article class="skill"><div class="skill-icon">▦</div><h3>Pandas</h3><p>Data cleaning & manipulation</p></article>
+        <article class="skill"><div class="skill-icon">◆</div><h3>MongoDB</h3><p>NoSQL fundamentals</p></article>
+        <article class="skill"><div class="skill-icon">⌘</div><h3>Git & GitHub</h3><p>Version control & repositories</p></article>
+        <article class="skill"><div class="skill-icon">🌐</div><h3>HTML5</h3><p>Web page structure</p></article>
+        <article class="skill"><div class="skill-icon">🎨</div><h3>CSS3</h3><p>Styling & responsive layouts</p></article>
+        <article class="skill"><div class="skill-icon">JS</div><h3>JavaScript</h3><p>Front-end interactivity</p></article>
+        <article class="skill"><div class="skill-icon">↗</div><h3>Currently Learning</h3><p>Data Warehousing & Azure</p></article>
+      </div>
+    </section>
+
+    <section id="journey" class="section container">
+      <div class="section-heading"><span class="section-number">03</span><h2>My Learning Journey</h2></div>
+      <div class="timeline">
+        <div class="timeline-item"><h3>Python & Problem Solving</h3><p>Programming fundamentals and logical thinking.</p></div>
+        <div class="timeline-item"><h3>Web Scraping & Data Processing</h3><p>Collecting, cleaning, and organizing data with Selenium and Pandas.</p></div>
+        <div class="timeline-item"><h3>SQL & Databases</h3><p>Practicing SQL queries and relational database concepts.</p></div>
+        <div class="timeline-item"><h3>ETL & Apache Airflow</h3><p>Building scheduled workflows with tasks, validation, retries, and reporting.</p></div>
+        <div class="timeline-item"><h3>Front-End Development</h3><p>Creating web pages with HTML, CSS, and JavaScript.</p></div>
+        <div class="timeline-item"><h3>Data Warehousing & Cloud</h3><p>Continuing to learn data modeling, pipelines, and Azure concepts.</p></div>
+      </div>
+    </section>
+
+    <section id="projects" class="section container">
+      <div class="section-heading"><span class="section-number">04</span><h2>Featured Projects</h2></div>
+      <div class="projects">
+        <article class="project">
+          <div class="project-number">01</div><div class="project-content">
+            <p class="project-category">DATA ENGINEERING · ETL</p>
+            <h3>Retail ETL Pipeline</h3>
+            <p class="project-description">An end-to-end retail ETL workflow built with Python and Apache Airflow 3. It reads orders from CSV and product data from JSON, validates and joins records, stores clean sales in SQLite, writes rejected rows, and generates a daily sales report.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Apache Airflow 3</span><span class="tag">TaskFlow API</span><span class="tag">SQLite</span><span class="tag">ETL</span></div>
+            <a class="project-link" href="https://github.com/selwan20osama/airflow-pipelinee" target="_blank" rel="noopener noreferrer">View Project on GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-number">02</div><div class="project-content">
+            <p class="project-category">FRONT-END DEVELOPMENT</p>
+            <h3>Front-End Web Project</h3>
+            <p class="project-description">A web front-end project built using HTML, CSS, and JavaScript, with a focus on page structure, visual styling, and interactive user-interface elements.</p>
+            <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Web Design</span></div>
+            <a class="project-link" href="https://github.com/selwan20osama/frontend" target="_blank" rel="noopener noreferrer">View Project on GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-number">03</div><div class="project-content">
+            <p class="project-category">WEB SCRAPING · DATA PROCESSING</p>
+            <h3>Amazon Laptop Scraper</h3>
+            <p class="project-description">A Python web scraping project using Selenium to collect laptop product information from Amazon and Pandas to organize and process the collected data.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Selenium</span><span class="tag">Pandas</span><span class="tag">CSV</span></div>
+            <a class="project-link" href="https://github.com/selwan20osama/amazon-laptop-scraper" target="_blank" rel="noopener noreferrer">View Project on GitHub →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="section container">
+      <div class="section-heading"><span class="section-number">05</span><h2>Education</h2></div>
+      <div class="education">
+        <div><p class="education-year">2024 — 2028</p><h3>Fayoum University</h3><p>Faculty of Computers and Information · Computer Science</p></div>
+        <div class="degree">CS</div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact container">
+      <p class="eyebrow">LET'S CONNECT</p>
+      <h2>Let's Build<br><span class="accent">Something Useful.</span></h2>
+      <p class="contact-description">I'm interested in learning, building practical projects, and connecting with people in data and technology.</p>
+      <div class="contact-buttons">
+        <a href="https://www.linkedin.com/in/selwan-osama-7a389a33b" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Connect on LinkedIn ↗</a>
+        <a href="https://github.com/selwan20osama" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Explore GitHub ↗</a>
+      </div>
+      <footer>© 2026 Selwan Osama · Data Engineering Portfolio</footer>
+    </section>
+  </main>
+</body>
+</html>
