@@ -1,1640 +1,814 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Selwan Osama | Data Engineering Portfolio</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-/* =========================
-   RESET
-========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: "Inter", sans-serif;
-    background: #07080c;
-    color: #f5f5f7;
-    line-height: 1.7;
-}
-
-
-/* =========================
-   VARIABLES
-========================= */
-
-:root {
-    --bg: #07080c;
-    --card: #101118;
-    --border: #242631;
-    --text: #f5f5f7;
-    --muted: #8b8e9a;
-    --purple: #8b5cf6;
-    --purple-light: #a78bfa;
-}
-
-
-/* =========================
-   NAVBAR
-========================= */
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    z-index: 1000;
-
-    background: rgba(7, 8, 12, 0.78);
-    backdrop-filter: blur(18px);
-
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.navbar {
-    max-width: 1180px;
-    margin: auto;
-
-    padding: 20px 25px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    text-decoration: none;
-    color: white;
-
-    font-size: 25px;
-    font-weight: 800;
-}
-
-.logo span {
-    color: var(--purple);
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #9698a3;
-
-    font-size: 13px;
-    font-weight: 500;
-
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: white;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 100vh;
-
-    max-width: 1180px;
-    margin: auto;
-
-    padding: 150px 25px 100px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 80px;
-}
-
-.hero-left {
-    max-width: 680px;
-}
-
-.eyebrow {
-    color: var(--purple-light);
-
-    font-size: 12px;
-    font-weight: 700;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 22px;
-}
-
-.hero h1 {
-    font-size: clamp(55px, 7vw, 92px);
-
-    line-height: 0.98;
-
-    letter-spacing: -5px;
-
-    margin-bottom: 30px;
-}
-
-.hero h1 span {
-    color: var(--purple);
-}
-
-.hero-description {
-    max-width: 590px;
-
-    color: var(--muted);
-
-    font-size: 17px;
-
-    margin-bottom: 35px;
-}
-
-.buttons {
-    display: flex;
-    gap: 14px;
-}
-
-.btn {
-    display: inline-block;
-
-    padding: 13px 22px;
-
-    border-radius: 8px;
-
-    text-decoration: none;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    transition: 0.3s;
-}
-
-.btn-primary {
-    color: white;
-    background: var(--purple);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 12px 35px rgba(139,92,246,0.28);
-}
-
-.btn-outline {
-    color: white;
-
-    border: 1px solid #30323d;
-}
-
-.btn-outline:hover {
-    border-color: var(--purple);
-}
-
-
-/* =========================
-   HERO CODE WINDOW
-========================= */
-
-.code-window {
-    width: 390px;
-
-    background: #0e0f15;
-
-    border: 1px solid #292b36;
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 35px 100px rgba(0,0,0,0.5);
-
-    transform: rotate(2deg);
-
-    transition: 0.5s;
-}
-
-.code-window:hover {
-    transform: rotate(0deg) translateY(-8px);
-}
-
-.window-header {
-    padding: 15px 18px;
-
-    border-bottom: 1px solid #252732;
-}
-
-.window-dot {
-    width: 9px;
-    height: 9px;
-
-    display: inline-block;
-
-    border-radius: 50%;
-
-    background: #444752;
-
-    margin-right: 5px;
-}
-
-.code {
-    padding: 27px;
-
-    font-family: Consolas, monospace;
-
-    font-size: 14px;
-
-    color: #bfc1ca;
-}
-
-.code-line {
-    margin-bottom: 9px;
-}
-
-.keyword {
-    color: #c084fc;
-}
-
-.string {
-    color: #67e8f9;
-}
-
-.boolean {
-    color: #86efac;
-}
-
-.comment {
-    color: #555965;
-}
-
-
-/* =========================
-   GENERAL SECTION
-========================= */
-
-.section {
-    max-width: 1180px;
-
-    margin: auto;
-
-    padding: 115px 25px;
-}
-
-.section-heading {
-    display: flex;
-    align-items: center;
-
-    gap: 18px;
-
-    margin-bottom: 55px;
-}
-
-.section-number {
-    color: var(--purple);
-
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.section-heading h2 {
-    font-size: 38px;
-
-    letter-spacing: -1.5px;
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-.about-box {
-    max-width: 780px;
-}
-
-.about-box p {
-    color: var(--muted);
-
-    font-size: 18px;
-
-    margin-bottom: 20px;
-}
-
-
-/* =========================
-   SKILLS
-========================= */
-
-.skills {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 15px;
-}
-
-.skill {
-    padding: 25px;
-
-    background: var(--card);
-
-    border: 1px solid var(--border);
-
-    border-radius: 13px;
-
-    transition: 0.3s;
-}
-
-.skill:hover {
-    transform: translateY(-5px);
-
-    border-color: var(--purple);
-}
-
-.skill-icon {
-    font-size: 25px;
-
-    margin-bottom: 15px;
-}
-
-.skill h3 {
-    font-size: 16px;
-
-    margin-bottom: 5px;
-}
-
-.skill p {
-    color: #747782;
-
-    font-size: 12px;
-}
-
-
-/* =========================
-   JOURNEY
-========================= */
-
-.timeline {
-    position: relative;
-
-    max-width: 800px;
-}
-
-.timeline::before {
-    content: "";
-
-    position: absolute;
-
-    left: 5px;
-
-    top: 10px;
-
-    bottom: 10px;
-
-    width: 1px;
-
-    background: #292b35;
-}
-
-.timeline-item {
-    position: relative;
-
-    display: flex;
-
-    gap: 30px;
-
-    padding-bottom: 42px;
-}
-
-.timeline-dot {
-    flex-shrink: 0;
-
-    width: 11px;
-    height: 11px;
-
-    margin-top: 9px;
-
-    border-radius: 50%;
-
-    background: var(--purple);
-
-    box-shadow:
-        0 0 18px rgba(139,92,246,0.65);
-
-    z-index: 2;
-}
-
-.timeline-item h3 {
-    font-size: 20px;
-
-    margin-bottom: 4px;
-}
-
-.timeline-item p {
-    color: var(--muted);
-
-    font-size: 14px;
-}
-
-.future {
-    opacity: 0.45;
-}
-
-
-/* =========================
-   PROJECTS
-========================= */
-
-.projects {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 20px;
-}
-
-.project {
-    position: relative;
-
-    overflow: hidden;
-
-    min-height: 350px;
-
-    padding: 35px;
-
-    background: var(--card);
-
-    border: 1px solid var(--border);
-
-    border-radius: 16px;
-
-    transition: 0.35s;
-}
-
-.project:hover {
-    transform: translateY(-7px);
-
-    border-color: var(--purple);
-}
-
-.project-number {
-    position: absolute;
-
-    top: 15px;
-    right: 25px;
-
-    font-size: 65px;
-
-    font-weight: 800;
-
-    color: #181a22;
-}
-
-.project-content {
-    position: relative;
-
-    z-index: 2;
-}
-
-.project-category {
-    color: var(--purple-light);
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 12px;
-}
-
-.project h3 {
-    font-size: 26px;
-
-    margin-bottom: 15px;
-}
-
-.project-description {
-    color: var(--muted);
-
-    font-size: 14px;
-
-    max-width: 500px;
-}
-
-.tags {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 7px;
-
-    margin: 22px 0;
-}
-
-.tag {
-    padding: 5px 9px;
-
-    border-radius: 5px;
-
-    background: #191b23;
-
-    border: 1px solid #292b35;
-
-    color: #b5b7c0;
-
-    font-size: 10px;
-}
-
-.project-link {
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 600;
-}
-
-.project-link:hover {
-    color: var(--purple-light);
-}
-
-.disabled {
-    color: #626571;
-}
-
-
-/* =========================
-   EDUCATION
-========================= */
-
-.education {
-    max-width: 800px;
-
-    padding: 30px;
-
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
-
-    background: var(--card);
-
-    border: 1px solid var(--border);
-
-    border-radius: 15px;
-}
-
-.education-year {
-    color: var(--purple-light);
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    margin-bottom: 6px;
-}
-
-.education h3 {
-    font-size: 22px;
-}
-
-.education p {
-    color: var(--muted);
-}
-
-.degree {
-    width: 65px;
-    height: 65px;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    border: 1px solid var(--purple);
-
-    border-radius: 50%;
-
-    color: var(--purple-light);
-
-    font-weight: 700;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact {
-    max-width: 1180px;
-
-    margin: auto;
-
-    padding: 140px 25px 40px;
-
-    text-align: center;
-}
-
-.contact h2 {
-    font-size: clamp(50px, 7vw, 90px);
-
-    line-height: 1;
-
-    letter-spacing: -5px;
-
-    margin-bottom: 25px;
-}
-
-.contact-description {
-    max-width: 500px;
-
-    margin: auto auto 30px;
-
-    color: var(--muted);
-}
-
-.contact-buttons {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 14px;
-}
-
-footer {
-    margin-top: 120px;
-
-    padding-top: 25px;
-
-    border-top: 1px solid #1d1f27;
-
-    color: #555863;
-
-    font-size: 12px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 900px) {
-
-    .hero {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        padding-top: 130px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Selwan Tawfiq - Computer Science Student and Data Engineering Trainee. Explore my data engineering projects and technical skills.">
+  <title>Selwan Tawfiq | Data Engineer Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090711;
+      --surface: #110e1d;
+      --surface-light: #19142a;
+      --purple: #a78bfa;
+      --purple-bright: #c4a7ff;
+      --pink: #e879f9;
+      --text: #f5f3ff;
+      --muted: #a7a1b8;
+      --border: rgba(167, 139, 250, 0.18);
     }
 
-    .code-window {
-        width: 100%;
-
-        max-width: 500px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    .skills {
-        grid-template-columns:
-            repeat(2, 1fr);
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(124, 58, 237, 0.13), transparent 30%),
+        radial-gradient(circle at 85% 45%, rgba(192, 38, 211, 0.08), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
     }
 
-    .projects {
-        grid-template-columns: 1fr;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 7, 17, 0.88);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-content {
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--purple-bright);
     }
 
     .nav-links {
-        display: none;
+      display: flex;
+      gap: 25px;
+      list-style: none;
     }
-}
 
+    .nav-links a {
+      color: var(--muted);
+      font-size: 13px;
+      transition: 0.3s;
+    }
 
-@media (max-width: 520px) {
+    .nav-links a:hover {
+      color: var(--purple-bright);
+    }
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      padding: 100px 0;
+    }
+
+    .hero-content {
+      max-width: 780px;
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--purple-bright);
+      background: rgba(167, 139, 250, 0.1);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 7px 15px;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      margin-bottom: 25px;
+    }
 
     .hero h1 {
-        font-size: 52px;
-
-        letter-spacing: -3px;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.12;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
     }
 
-    .skills {
-        grid-template-columns: 1fr;
+    .gradient {
+      background: linear-gradient(90deg, #a78bfa, #e879f9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 650px;
+      margin-bottom: 30px;
     }
 
     .buttons {
-        flex-direction: column;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
     }
 
     .btn {
-        text-align: center;
+      display: inline-block;
+      padding: 12px 23px;
+      border-radius: 9px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(100deg, #8b5cf6, #c084fc);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--purple);
+      color: var(--purple-bright);
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 38px;
+    }
+
+    .section-heading small {
+      color: var(--purple);
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
     }
 
     .section-heading h2 {
-        font-size: 30px;
+      font-size: 34px;
+      margin-top: 8px;
     }
 
-    .contact h2 {
-        font-size: 52px;
-
-        letter-spacing: -3px;
+    .section-heading p {
+      color: var(--muted);
+      margin-top: 10px;
+      max-width: 650px;
     }
-}
 
-</style>
+    .about-card,
+    .project-card,
+    .skill-card,
+    .journey-card {
+      background: linear-gradient(145deg, var(--surface-light), var(--surface));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 27px;
+      transition: 0.3s;
+    }
+
+    .about-card:hover,
+    .project-card:hover,
+    .skill-card:hover,
+    .journey-card:hover {
+      border-color: rgba(192, 132, 252, 0.55);
+      transform: translateY(-4px);
+    }
+
+    .about-card p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .info-item {
+      padding: 15px;
+      border-radius: 10px;
+      background: rgba(167, 139, 250, 0.07);
+    }
+
+    .info-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .info-item strong {
+      font-size: 14px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 330px;
+    }
+
+    .project-number {
+      color: var(--purple);
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    .project-card h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .project-tags,
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .project-tags {
+      margin-bottom: 23px;
+    }
+
+    .project-tags span,
+    .skill-pill {
+      background: rgba(167, 139, 250, 0.09);
+      border: 1px solid var(--border);
+      color: #d8c8ff;
+      border-radius: 30px;
+      padding: 5px 11px;
+      font-size: 11px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 18px;
+      margin-top: auto;
+      padding-top: 10px;
+    }
+
+    .project-links a {
+      color: var(--purple-bright);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .project-links a:hover {
+      color: var(--pink);
+    }
+
+    .featured {
+      border-color: rgba(192, 132, 252, 0.5);
+      background:
+        linear-gradient(145deg, rgba(91, 33, 182, 0.16), transparent 70%),
+        var(--surface);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card h3 {
+      font-size: 17px;
+      margin-bottom: 17px;
+      color: var(--purple-bright);
+    }
+
+    .journey-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .journey-card {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .journey-icon {
+      min-width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      background: rgba(167, 139, 250, 0.12);
+      border-radius: 12px;
+      color: var(--purple-bright);
+      font-size: 18px;
+    }
+
+    .journey-card h3 {
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .journey-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-card {
+      text-align: center;
+      background: linear-gradient(145deg, rgba(91, 33, 182, 0.2), var(--surface));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 55px 25px;
+    }
+
+    .contact-card h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .nav-content {
+        flex-direction: column;
+        padding: 17px 0;
+      }
+
+      .nav-links {
+        gap: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 90px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .projects-grid,
+      .skills-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .journey-card {
+        gap: 13px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="#home" class="logo">Selwan.dev</a>
 
-<!-- ================= NAVBAR ================= -->
-
-<header>
-
-<nav class="navbar">
-
-    <a href="#" class="logo">
-        SO<span>.</span>
-    </a>
-
-    <div class="nav-links">
-
-        <a href="#about">About</a>
-
-        <a href="#skills">Skills</a>
-
-        <a href="#journey">Journey</a>
-
-        <a href="#projects">Projects</a>
-
-        <a href="#contact">Contact</a>
-
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
+  </nav>
 
-</nav>
+  <main>
 
-</header>
+    <header class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <span class="tag">Computer Science Student | Data Engineering</span>
 
+          <h1>
+            Hi, I'm <span class="gradient">Selwan Tawfiq</span>
+          </h1>
 
+          <p>
+            Computer Science student at Fayoum University with a growing focus
+            on Data Engineering. I enjoy building data pipelines, working with
+            databases, and turning raw data into structured and useful insights.
+          </p>
 
-<!-- ================= HERO ================= -->
+          <div class="buttons">
+            <a href="#projects" class="btn btn-primary">Explore My Projects</a>
+            <a href="https://www.linkedin.com/in/selwan-osama-7a389a33b"
+               target="_blank" rel="noopener" class="btn btn-outline">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
 
-<section class="hero">
-
-
-<div class="hero-left">
-
-    <p class="eyebrow">
-        DATA ENGINEERING STUDENT
-    </p>
-
-
-    <h1>
-        Turning <span>Data</span><br>
-        Into Solutions.
-    </h1>
-
-
-    <p class="hero-description">
-
-        I'm Selwan Osama, a Computer Science student
-        building my path in Data Engineering through
-        Python, SQL, databases, data processing and
-        practical projects.
-
-    </p>
-
-
-    <div class="buttons">
-
-        <a
-            href="#projects"
-            class="btn btn-primary">
-
-            Explore My Work
-
-        </a>
-
-
-        <a
-            href="https://www.linkedin.com/in/selwan-osama-7a389a33b"
-            target="_blank"
-            class="btn btn-outline">
-
-            LinkedIn ↗
-
-        </a>
-
-    </div>
-
-</div>
-
-
-
-<!-- CODE WINDOW -->
-
-<div class="code-window">
-
-    <div class="window-header">
-
-        <span class="window-dot"></span>
-        <span class="window-dot"></span>
-        <span class="window-dot"></span>
-
-    </div>
-
-
-    <div class="code">
-
-        <div class="code-line">
-            <span class="keyword">pipeline</span> = {
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <small>01 / ABOUT ME</small>
+          <h2>About Me</h2>
+          <p>A little introduction about my background and interests.</p>
         </div>
 
-        <div class="code-line">
-            &nbsp;&nbsp;<span class="string">"python"</span>:
-            <span class="boolean">True</span>,
-        </div>
+        <div class="about-card">
+          <p>
+            I'm a third-year Computer Science student at Fayoum University,
+            interested in Data Engineering and building practical data
+            solutions.
+          </p>
 
-        <div class="code-line">
-            &nbsp;&nbsp;<span class="string">"sql"</span>:
-            <span class="boolean">True</span>,
-        </div>
+          <p>
+            I have completed the DEPI Data Engineer track and worked on
+            projects involving ETL pipelines, workflow orchestration,
+            cloud data warehousing, data transformation, and web scraping.
+          </p>
 
-        <div class="code-line">
-            &nbsp;&nbsp;<span class="string">"mongodb"</span>:
-            <span class="boolean">True</span>,
-        </div>
+          <p>
+            I'm continuously improving my technical skills through projects,
+            university activities, and hands-on learning.
+          </p>
 
-        <div class="code-line">
-            &nbsp;&nbsp;<span class="string">"data_engineering"</span>:
-            <span class="string">"building"</span>
-        </div>
-
-        <div class="code-line">
-            }
-        </div>
-
-        <div class="code-line comment">
-            # learning → building → improving
-        </div>
-
-    </div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= ABOUT ================= -->
-
-<section id="about" class="section">
-
-    <div class="section-heading">
-
-        <span class="section-number">
-            01
-        </span>
-
-        <h2>
-            About Me
-        </h2>
-
-    </div>
-
-
-    <div class="about-box">
-
-        <p>
-            I'm a Computer Science student at Fayoum University
-            with a growing focus on Data Engineering.
-        </p>
-
-        <p>
-            I'm currently developing practical experience with
-            Python, SQL, SQL Server, MongoDB, Pandas and Selenium,
-            while continuing to explore modern data engineering
-            technologies and workflows.
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= SKILLS ================= -->
-
-<section id="skills" class="section">
-
-    <div class="section-heading">
-
-        <span class="section-number">
-            02
-        </span>
-
-        <h2>
-            Skills & Technologies
-        </h2>
-
-    </div>
-
-
-    <div class="skills">
-
-
-        <div class="skill">
-
-            <div class="skill-icon">
-                🐍
+          <div class="info-grid">
+            <div class="info-item">
+              <span>University</span>
+              <strong>Fayoum University</strong>
             </div>
 
-            <h3>
-                Python
-            </h3>
-
-            <p>
-                Programming & Data Processing
-            </p>
-
-        </div>
-
-
-
-        <div class="skill">
-
-            <div class="skill-icon">
-                ◈
+            <div class="info-item">
+              <span>Field</span>
+              <strong>Computer Science</strong>
             </div>
 
-            <h3>
-                SQL
-            </h3>
+            <div class="info-item">
+              <span>Focus</span>
+              <strong>Data Engineering</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <p>
-                Queries & Database Management
-            </p>
-
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <small>02 / SELECTED WORK</small>
+          <h2>Featured Projects</h2>
+          <p>
+            Practical projects where I applied programming, data processing,
+            databases, and pipeline development.
+          </p>
         </div>
 
+        <div class="projects-grid">
 
+          <article class="project-card featured">
+            <div class="project-number">PROJECT 01 · DATA ENGINEERING</div>
+            <h3>ReelRatings – Modern Data Stack</h3>
+            <p>
+              An end-to-end movie ratings data engineering project.
+              The pipeline uses Airflow for orchestration, Snowflake as
+              the data warehouse, and dbt for SQL transformations and
+              dimensional modeling. The project also includes a Streamlit
+              dashboard and a Docker-based environment.
+            </p>
 
-        <div class="skill">
-
-            <div class="skill-icon">
-                ◆
+            <div class="project-tags">
+              <span>Python</span>
+              <span>Apache Airflow</span>
+              <span>Snowflake</span>
+              <span>dbt</span>
+              <span>Docker</span>
+              <span>Streamlit</span>
+              <span>SQL</span>
             </div>
 
-            <h3>
-                MongoDB
-            </h3>
+            <div class="project-links">
+              <a href="https://github.com/selwan20osama/reelratings-modern-data-stack"
+                 target="_blank" rel="noopener">GitHub Repository ↗</a>
+            </div>
+          </article>
 
+          <article class="project-card">
+            <div class="project-number">PROJECT 02 · ETL PIPELINE</div>
+            <h3>Retail ETL Pipeline</h3>
             <p>
-                NoSQL & Data Storage
+              A Python and Apache Airflow pipeline that processes retail
+              orders and product data from CSV and JSON sources. It performs
+              data validation and transformation, loads clean records into
+              SQLite, and generates rejected-record and daily sales reports.
             </p>
 
-        </div>
-
-
-
-        <div class="skill">
-
-            <div class="skill-icon">
-                ◫
+            <div class="project-tags">
+              <span>Python</span>
+              <span>Airflow 3</span>
+              <span>ETL</span>
+              <span>SQLite</span>
+              <span>CSV</span>
+              <span>JSON</span>
             </div>
 
-            <h3>
-                Pandas
-            </h3>
+            <div class="project-links">
+              <a href="https://github.com/selwan20osama/airflow-pipelinee"
+                 target="_blank" rel="noopener">GitHub Repository ↗</a>
+            </div>
+          </article>
 
+          <article class="project-card">
+            <div class="project-number">PROJECT 03 · WEB SCRAPING</div>
+            <h3>Amazon Laptop Scraper</h3>
             <p>
-                Data Cleaning & Analysis
+              A Python web scraping project using Selenium to collect laptop
+              product information from Amazon. The collected data is processed
+              using Pandas and exported into CSV format for further analysis.
             </p>
 
-        </div>
-
-
-
-        <div class="skill">
-
-            <div class="skill-icon">
-                ◎
+            <div class="project-tags">
+              <span>Python</span>
+              <span>Selenium</span>
+              <span>Pandas</span>
+              <span>Web Scraping</span>
+              <span>CSV</span>
             </div>
 
-            <h3>
-                Selenium
-            </h3>
+            <div class="project-links">
+              <a href="https://github.com/selwan20osama/amazon-laptop-scraper"
+                 target="_blank" rel="noopener">GitHub Repository ↗</a>
+            </div>
+          </article>
 
+          <article class="project-card">
+            <div class="project-number">PROJECT 04 · WEB DEVELOPMENT</div>
+            <h3>Front-End Web Project</h3>
             <p>
-                Web Scraping & Automation
+              A front-end development project built using HTML, CSS,
+              and JavaScript, demonstrating foundational web development
+              and interface-building skills.
             </p>
 
-        </div>
-
-
-
-        <div class="skill">
-
-            <div class="skill-icon">
-                ▦
+            <div class="project-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
             </div>
 
-            <h3>
-                SQL Server
-            </h3>
-
-            <p>
-                Relational Databases
-            </p>
-
-        </div>
-
-
-
-        <div class="skill">
-
-            <div class="skill-icon">
-                ⌘
+            <div class="project-links">
+              <a href="https://github.com/selwan20osama/frontend"
+                 target="_blank" rel="noopener">GitHub Repository ↗</a>
             </div>
-
-            <h3>
-                Git & GitHub
-            </h3>
-
-            <p>
-                Version Control
-            </p>
+          </article>
 
         </div>
+      </div>
+    </section>
 
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <small>03 / TECHNICAL TOOLKIT</small>
+          <h2>Technical Skills</h2>
+          <p>
+            Technologies and tools I have used in my projects or studied
+            through training and coursework.
+          </p>
+        </div>
 
+        <div class="skills-grid">
 
-        <div class="skill">
-
-            <div class="skill-icon">
-                + 
+          <div class="skill-card">
+            <h3>Data Engineering</h3>
+            <div class="skills-list">
+              <span class="skill-pill">ETL Pipelines</span>
+              <span class="skill-pill">Apache Airflow</span>
+              <span class="skill-pill">Snowflake</span>
+              <span class="skill-pill">dbt</span>
+              <span class="skill-pill">Data Modeling</span>
+              <span class="skill-pill">Docker</span>
+              <span class="skill-pill">Streamlit</span>
             </div>
+          </div>
 
-            <h3>
-                Currently Learning
-            </h3>
+          <div class="skill-card">
+            <h3>Programming & Databases</h3>
+            <div class="skills-list">
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">SQL</span>
+              <span class="skill-pill">Pandas</span>
+              <span class="skill-pill">SQLite</span>
+              <span class="skill-pill">MongoDB</span>
+              <span class="skill-pill">Git</span>
+              <span class="skill-pill">GitHub</span>
+            </div>
+          </div>
 
-            <p>
-                Data Warehouse • ETL • Azure
-            </p>
+          <div class="skill-card">
+            <h3>Data Collection & Analysis</h3>
+            <div class="skills-list">
+              <span class="skill-pill">Selenium</span>
+              <span class="skill-pill">BeautifulSoup</span>
+              <span class="skill-pill">Web Scraping</span>
+              <span class="skill-pill">Data Cleaning</span>
+              <span class="skill-pill">Data Visualization</span>
+              <span class="skill-pill">Power BI</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>Other Technologies</h3>
+            <div class="skills-list">
+              <span class="skill-pill">HTML</span>
+              <span class="skill-pill">CSS</span>
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">Linux</span>
+              <span class="skill-pill">Azure Concepts</span>
+            </div>
+          </div>
 
         </div>
+      </div>
+    </section>
 
+    <section id="journey">
+      <div class="container">
+        <div class="section-heading">
+          <small>04 / LEARNING & DEVELOPMENT</small>
+          <h2>My Learning Journey</h2>
+          <p>
+            Training, learning experiences, and activities that have
+            contributed to my technical development.
+          </p>
+        </div>
 
-    </div>
+        <div class="journey-list">
 
-</section>
-
-
-
-<!-- ================= JOURNEY ================= -->
-
-<section id="journey" class="section">
-
-    <div class="section-heading">
-
-        <span class="section-number">
-            03
-        </span>
-
-        <h2>
-            My Data Engineering Journey
-        </h2>
-
-    </div>
-
-
-    <div class="timeline">
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-dot"></div>
-
+          <div class="journey-card">
+            <div class="journey-icon">01</div>
             <div>
-
-                <h3>
-                    Python
-                </h3>
-
-                <p>
-                    Programming fundamentals & problem solving
-                </p>
-
+              <h3>DEPI – Data Engineer Track</h3>
+              <p>
+                Completed training covering Python, SQL, data pipelines,
+                big data concepts, Azure data engineering, deployment,
+                and AI for Data Engineers.
+              </p>
             </div>
+          </div>
 
-        </div>
-
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-dot"></div>
-
+          <div class="journey-card">
+            <div class="journey-icon">02</div>
             <div>
-
-                <h3>
-                    Web Scraping
-                </h3>
-
-                <p>
-                    Selenium, Pandas & data collection
-                </p>
-
+              <h3>University of Tokyo – GCI</h3>
+              <p>
+                Learning experience covering data science topics,
+                Pandas, and feature engineering.
+              </p>
             </div>
+          </div>
 
-        </div>
-
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-dot"></div>
-
+          <div class="journey-card">
+            <div class="journey-icon">03</div>
             <div>
-
-                <h3>
-                    SQL & Databases
-                </h3>
-
-                <p>
-                    SQL Server, queries, procedures, views & functions
-                </p>
-
+              <h3>Problem Solving Mentor – Level 1</h3>
+              <p>
+                Mentoring beginners in problem solving and introductory
+                programming concepts.
+              </p>
             </div>
+          </div>
 
-        </div>
-
-
-
-        <div class="timeline-item">
-
-            <div class="timeline-dot"></div>
-
+          <div class="journey-card">
+            <div class="journey-icon">04</div>
             <div>
-
-                <h3>
-                    MongoDB + Python
-                </h3>
-
-                <p>
-                    NoSQL, aggregation, indexing & database integration
-                </p>
-
+              <h3>Cisco – Introduction to Data Science</h3>
+              <p>
+                Completed an introductory learning program in Data Science.
+              </p>
             </div>
+          </div>
 
-        </div>
-
-
-
-        <div class="timeline-item future">
-
-            <div class="timeline-dot"></div>
-
+          <div class="journey-card">
+            <div class="journey-icon">05</div>
             <div>
-
-                <h3>
-                    Data Warehouse
-                </h3>
-
-                <p>
-                    Currently learning
-                </p>
-
+              <h3>IEEE – Cybersecurity Track</h3>
+              <p>
+                Participated in university cybersecurity learning activities.
+              </p>
             </div>
+          </div>
 
         </div>
+      </div>
+    </section>
 
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <h2>Let's Connect</h2>
+          <p>
+            Interested in Data Engineering, collaboration, and
+            opportunities to learn and grow.
+          </p>
 
+          <div class="contact-links">
+            <a class="btn btn-primary"
+               href="https://www.linkedin.com/in/selwan-osama-7a389a33b"
+               target="_blank" rel="noopener">LinkedIn ↗</a>
 
-        <div class="timeline-item future">
-
-            <div class="timeline-dot"></div>
-
-            <div>
-
-                <h3>
-                    Azure & Data Pipelines
-                </h3>
-
-                <p>
-                    Future stage
-                </p>
-
-            </div>
-
+            <a class="btn btn-outline"
+               href="https://github.com/selwan20osama"
+               target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
         </div>
+      </div>
+    </section>
 
+  </main>
 
+  <footer>
+    <div class="container">
+      <p>Designed & Built by Selwan Tawfiq · © <span id="year"></span></p>
     </div>
-
-</section>
-
-
-
-<!-- ================= PROJECTS ================= -->
-
-<section id="projects" class="section">
-
-    <div class="section-heading">
-
-        <span class="section-number">
-            04
-        </span>
-
-        <h2>
-            Featured Projects
-        </h2>
-
-    </div>
-
-
-    <div class="projects">
-
-
-        <!-- AMAZON -->
-
-        <article class="project">
-
-            <div class="project-number">
-                01
-            </div>
-
-
-            <div class="project-content">
-
-                <p class="project-category">
-                    WEB SCRAPING
-                </p>
-
-
-                <h3>
-                    Amazon Laptop Scraper
-                </h3>
-
-
-                <p class="project-description">
-
-                    A web scraping and data cleaning project
-                    using Selenium and Pandas to collect
-                    laptop product information from Amazon.
-
-                </p>
-
-
-                <div class="tags">
-
-                    <span class="tag">
-                        Python
-                    </span>
-
-                    <span class="tag">
-                        Selenium
-                    </span>
-
-                    <span class="tag">
-                        Pandas
-                    </span>
-
-                    <span class="tag">
-                        Data Cleaning
-                    </span>
-
-                </div>
-
-
-                <!-- REAL LINK YOU PROVIDED -->
-
-                <a
-                    href="https://github.com/selwan20osama/amazon-laptop-scraper"
-                    target="_blank"
-                    class="project-link">
-
-                    View Project on GitHub →
-
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- SQL -->
-
-        <article class="project">
-
-            <div class="project-number">
-                02
-            </div>
-
-
-            <div class="project-content">
-
-                <p class="project-category">
-                    DATABASE
-                </p>
-
-
-                <h3>
-                    SQL Server
-                </h3>
-
-
-                <p class="project-description">
-
-                    Hands-on database work covering queries,
-                    joins, views, stored procedures, functions,
-                    triggers and indexes.
-
-                </p>
-
-
-                <div class="tags">
-
-                    <span class="tag">
-                        SQL
-                    </span>
-
-                    <span class="tag">
-                        SQL Server
-                    </span>
-
-                    <span class="tag">
-                        Database
-                    </span>
-
-                </div>
-
-
-                <span class="project-link disabled">
-
-                    Repository coming soon
-
-                </span>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- MONGODB -->
-
-        <article class="project">
-
-            <div class="project-number">
-                03
-            </div>
-
-
-            <div class="project-content">
-
-                <p class="project-category">
-                    NOSQL
-                </p>
-
-
-                <h3>
-                    MongoDB + Python
-                </h3>
-
-
-                <p class="project-description">
-
-                    Working with MongoDB collections,
-                    CRUD operations, aggregation, indexes
-                    and connecting MongoDB with Python.
-
-                </p>
-
-
-                <div class="tags">
-
-                    <span class="tag">
-                        MongoDB
-                    </span>
-
-                    <span class="tag">
-                        Python
-                    </span>
-
-                    <span class="tag">
-                        NoSQL
-                    </span>
-
-                </div>
-
-
-                <span class="project-link disabled">
-
-                    Repository coming soon
-
-                </span>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- DATA WAREHOUSE -->
-
-        <article class="project">
-
-            <div class="project-number">
-                04
-            </div>
-
-
-            <div class="project-content">
-
-                <p class="project-category">
-                    CURRENTLY LEARNING
-                </p>
-
-
-                <h3>
-                    Data Warehouse
-                </h3>
-
-
-                <p class="project-description">
-
-                    Exploring ETL, dimensional modeling,
-                    fact tables, dimension tables and
-                    analytical data workflows.
-
-                </p>
-
-
-                <div class="tags">
-
-                    <span class="tag">
-                        ETL
-                    </span>
-
-                    <span class="tag">
-                        Data Warehouse
-                    </span>
-
-                </div>
-
-
-                <span class="project-link disabled">
-
-                    Coming Soon
-
-                </span>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= EDUCATION ================= -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <span class="section-number">
-            05
-        </span>
-
-        <h2>
-            Education
-        </h2>
-
-    </div>
-
-
-    <div class="education">
-
-        <div>
-
-            <p class="education-year">
-                2024 — 2028
-            </p>
-
-            <h3>
-                Fayoum University
-            </h3>
-
-            <p>
-                Faculty of Computers and Information
-            </p>
-
-        </div>
-
-
-        <div class="degree">
-            CS
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact" class="contact">
-
-    <p class="eyebrow">
-        LET'S CONNECT
-    </p>
-
-
-    <h2>
-        Let's Build<br>
-        Something.
-    </h2>
-
-
-    <p class="contact-description">
-
-        I'm always interested in learning,
-        building and connecting with people
-        in technology.
-
-    </p>
-
-
-    <div class="contact-buttons">
-
-
-        <!-- YOUR LINKEDIN -->
-
-        <a
-            href="https://www.linkedin.com/in/selwan-osama-7a389a33b"
-            target="_blank"
-            class="btn btn-primary">
-
-            LinkedIn ↗
-
-        </a>
-
-
-        <!-- YOUR AMAZON PROJECT -->
-
-        <a
-            href="https://github.com/selwan20osama/amazon-laptop-scraper"
-            target="_blank"
-            class="btn btn-outline">
-
-            GitHub Project ↗
-
-        </a>
-
-
-    </div>
-
-
-    <footer>
-
-        © 2026 Selwan Osama · Data Engineering Portfolio
-
-    </footer>
-
-</section>
-
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
-```
